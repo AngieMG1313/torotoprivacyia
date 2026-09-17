@@ -64,10 +64,20 @@ For a production-shaped run: `npm run build` (builds server + client) then
 
 ## Known gaps / follow-ups
 
-- Vercel Blob's current access model has no true "private" tier — files are
-  world-fetchable by anyone with the exact URL. Pathnames include an
-  unguessable document UUID, but this is weaker than the "signed URL" model
-  described in the plan; revisit if stronger access control is needed.
+- ~~Vercel Blob's current access model has no true "private" tier~~ —
+  mitigated: the API never returns a raw `blob_url_*` to the client (see
+  `toClientDocument()` in `src/routes/documents.ts`). PDFs are only ever
+  served through `GET /api/documents/:id/file` and `/:id/public-file`,
+  which check the session on every request and respond
+  `Cache-Control: private, no-store`. The underlying Blob object is still
+  technically fetchable by anyone who somehow obtains its exact URL (Blob
+  itself has no auth), but the app never discloses that URL to a browser,
+  so there's no realistic path to it outside the server. One exception:
+  the browser necessarily learns its *own* file's Blob URL for the instant
+  of the direct-to-Blob upload (`client/src/pages/Upload.tsx`, required by
+  Vercel Blob's client-upload pattern to avoid routing large files through
+  our server) — that's the uploader's own just-authored content, not a new
+  disclosure, and the client discards the URL immediately after upload.
 - ~~The Stitch mockup's copy implies local/on-device inference~~ — checked:
   the actual React pages never carried over that copy ("Nodo local", "Sin
   transferencia externa", "Toroto Core NLP") from the raw mockup HTML, which

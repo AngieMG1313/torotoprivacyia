@@ -44,8 +44,10 @@ export interface DocumentRecord {
   size_bytes: number
   pages: number | null
   requester_area: string | null
-  blob_url_original: string
-  blob_url_public: string | null
+  // No raw Blob URLs here on purpose - the server strips them from every
+  // response (see toClientDocument() in src/routes/documents.ts). Fetch
+  // PDF bytes through /api/documents/:id/file or /public-file instead,
+  // which check the session on every request.
   status: DocumentStatus
   created_at: string
   updated_at: string

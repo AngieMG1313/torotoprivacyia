@@ -113,11 +113,22 @@ router.post('/:id/complete-upload', async (req, res) => {
   }
 })
 
+// Vercel Blob has no private-object tier: a `blob_url_*` is a capability
+// URL that works for anyone who has it, indefinitely. So the API never
+// hands one to the client - documents.ts strips them from every JSON
+// response, and PDF bytes are only ever served through the authenticated
+// proxy routes below, which check the session on every request instead of
+// relying on the blob URL itself being secret.
+function toClientDocument(doc: DocumentRecord) {
+  const { blob_url_original, blob_url_public, ...clientSafe } = doc
+  return clientSafe
+}
+
 router.get('/', async (req, res) => {
   const result = await query<DocumentRecord>(
     `select * from documents where status != 'PENDING_UPLOAD' order by created_at desc limit 100`,
   )
-  res.json(result.rows)
+  res.json(result.rows.map(toClientDocument))
 })
 
 router.get('/:id', async (req, res) => {
@@ -126,7 +137,44 @@ router.get('/:id', async (req, res) => {
     [req.params.id],
   )
   if (result.rows.length === 0) return res.status(404).json({ error: 'Not found' })
-  res.json(result.rows[0])
+  res.json(toClientDocument(result.rows[0]))
+})
+
+async function streamBlob(res: import('express').Response, blobUrl: string) {
+  const upstream = await fetch(blobUrl)
+  if (!upstream.ok) {
+    return res.status(502).json({ error: 'Could not fetch stored file' })
+  }
+  const buffer = Buffer.from(await upstream.arrayBuffer())
+  res.set('Content-Type', 'application/pdf')
+  // Never let a browser or intermediate cache/proxy retain a copy of a
+  // private document response.
+  res.set('Cache-Control', 'private, no-store')
+  res.send(buffer)
+}
+
+router.get('/:id/file', async (req, res) => {
+  const result = await query<DocumentRecord>(
+    'select blob_url_original, status from documents where id = $1',
+    [req.params.id],
+  )
+  const doc = result.rows[0]
+  if (!doc || !doc.blob_url_original || doc.status === 'PENDING_UPLOAD') {
+    return res.status(404).json({ error: 'Not found' })
+  }
+  await streamBlob(res, doc.blob_url_original)
+})
+
+router.get('/:id/public-file', async (req, res) => {
+  const result = await query<DocumentRecord>(
+    'select blob_url_public from documents where id = $1',
+    [req.params.id],
+  )
+  const doc = result.rows[0]
+  if (!doc || !doc.blob_url_public) {
+    return res.status(404).json({ error: 'This document has not been exported yet' })
+  }
+  await streamBlob(res, doc.blob_url_public)
 })
 
 export default router

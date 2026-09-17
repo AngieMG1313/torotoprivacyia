@@ -125,7 +125,7 @@ export function Review() {
             </span>
           </div>
           <PdfViewer
-            pdfUrl={doc.blob_url_original}
+            pdfUrl={`/api/documents/${doc.id}/file`}
             pageNumber={page}
             pageCount={pageCount}
             onPageCount={setPageCount}

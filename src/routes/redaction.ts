@@ -115,7 +115,14 @@ router.post('/documents/:id/export', async (req, res) => {
     [publicUrl, document.id],
   )
 
-  res.json({ publicUrl, inputSha256, outputSha256 })
+  // Never return the raw Blob URL to the client - see the comment on
+  // toClientDocument() in documents.ts. The client downloads through this
+  // authenticated proxy path instead.
+  res.json({
+    publicUrl: `/api/documents/${document.id}/public-file`,
+    inputSha256,
+    outputSha256,
+  })
 })
 
 export default router
