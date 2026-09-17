@@ -25,7 +25,8 @@ Private PDF → Gemini analysis → structured detections → human review → a
 ## Local development
 
 1. Copy `.env.example` to `.env` and fill in `DATABASE_URL`,
-   `BLOB_READ_WRITE_TOKEN`, `GEMINI_API_KEY`, and the Google OAuth vars.
+   `BLOB_READ_WRITE_TOKEN`, `GEMINI_API_KEY`, and the Google OAuth vars —
+   see `docs/SETUP-CREDENTIALS.md` for exactly where to get each one.
 2. `npm install && npm run db:migrate`
 3. `cd client && npm install && cd ..`
 4. `npm run dev` (API on `:3000`) and, in another terminal,
