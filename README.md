@@ -68,10 +68,12 @@ For a production-shaped run: `npm run build` (builds server + client) then
   world-fetchable by anyone with the exact URL. Pathnames include an
   unguessable document UUID, but this is weaker than the "signed URL" model
   described in the plan; revisit if stronger access control is needed.
-- The Stitch mockup's copy implies local/on-device inference ("Nodo local",
-  "Sin transferencia externa"); this build uses the cloud Gemini API per the
-  meeting notes/README instead — UI copy should be adjusted before wider
-  rollout so it doesn't overstate data locality.
+- ~~The Stitch mockup's copy implies local/on-device inference~~ — checked:
+  the actual React pages never carried over that copy ("Nodo local", "Sin
+  transferencia externa", "Toroto Core NLP") from the raw mockup HTML, which
+  isn't part of this repo to begin with. The app's real UI text doesn't make
+  a data-locality claim, and it uses the cloud Gemini API, matching what's
+  documented above. No action needed here.
 - No automated end-to-end test exercises the full HTTP flow with a real
   Google login yet (needs a real OAuth app + Gemini key); the pipeline
   pieces (schema validation, redaction) are verified individually.
