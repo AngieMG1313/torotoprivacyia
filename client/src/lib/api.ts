@@ -19,6 +19,9 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
 export const api = {
   me: () => request<{ id: number; email: string; name: string | null }>('/auth/me'),
 
+  authConfig: () => request<{ devLoginEnabled: boolean }>('/auth/config'),
+  devLogin: () => request<void>('/auth/dev-login', { method: 'POST' }),
+
   createDocument: (filename: string, requesterArea?: string) =>
     request<{ documentId: string }>('/documents', {
       method: 'POST',

@@ -1,6 +1,28 @@
+import { useEffect, useState } from 'react'
+import { api } from '../lib/api'
+
 export function Login() {
   const params = new URLSearchParams(window.location.search)
   const denied = params.get('error') === 'access_denied'
+  const [devLoginEnabled, setDevLoginEnabled] = useState(false)
+  const [devLoggingIn, setDevLoggingIn] = useState(false)
+
+  useEffect(() => {
+    api
+      .authConfig()
+      .then((c) => setDevLoginEnabled(c.devLoginEnabled))
+      .catch(() => {})
+  }, [])
+
+  async function loginAsDevUser() {
+    setDevLoggingIn(true)
+    try {
+      await api.devLogin()
+      window.location.href = '/'
+    } finally {
+      setDevLoggingIn(false)
+    }
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background">
@@ -23,6 +45,26 @@ export function Login() {
         >
           Iniciar sesión con Google
         </a>
+        {devLoginEnabled && (
+          <>
+            <div className="flex items-center gap-2 text-[11px] text-on-surface-variant">
+              <div className="h-px bg-outline-variant/40 flex-1" />
+              modo desarrollo
+              <div className="h-px bg-outline-variant/40 flex-1" />
+            </div>
+            <button
+              disabled={devLoggingIn}
+              onClick={loginAsDevUser}
+              className="w-full py-2 px-4 border border-outline-variant/50 rounded-lg font-medium text-body-sm text-on-surface-variant hover:bg-surface-container-low transition-all disabled:opacity-50"
+            >
+              {devLoggingIn ? 'Entrando…' : 'Entrar como usuario de prueba (sin Google)'}
+            </button>
+            <p className="text-[11px] text-amber-700">
+              Solo visible porque Google OAuth no está configurado todavía — nunca aparece en
+              producción una vez configurado (ver docs/SETUP-CREDENTIALS.md).
+            </p>
+          </>
+        )}
       </div>
     </div>
   )
