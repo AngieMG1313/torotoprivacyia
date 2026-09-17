@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Logo } from '../components/Logo'
 import { api } from '../lib/api'
 
 export function Login() {
@@ -27,8 +28,8 @@ export function Login() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-background">
       <div className="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/40 shadow-sm max-w-sm w-full text-center space-y-4">
-        <div className="w-14 h-14 mx-auto rounded-lg bg-primary-container flex items-center justify-center text-on-primary font-bold text-xl">
-          T
+        <div className="w-14 h-14 mx-auto rounded-lg bg-primary-container flex items-center justify-center">
+          <Logo className="w-7 h-7" color="white" />
         </div>
         <h1 className="text-headline-md text-on-surface font-bold">Toroto Privacy IA</h1>
         <p className="text-body-sm text-on-surface-variant">

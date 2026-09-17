@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import { Logo } from './Logo'
 
 // Ported from the Stitch mockup's shared sidebar (identical across all 4
 // screens) - see DESIGN.md for the color/spacing tokens this relies on.
@@ -14,8 +15,8 @@ export function SideNavBar({ userEmail }: { userEmail?: string }) {
     <aside className="fixed top-0 left-0 h-screen w-64 border-r border-outline-variant/20 bg-inverse-surface text-inverse-on-surface flex flex-col justify-between p-4 shrink-0 select-none z-40">
       <div className="space-y-5">
         <div className="flex items-center gap-3 px-1 py-1">
-          <div className="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center text-on-primary shadow-sm font-bold">
-            T
+          <div className="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center shadow-sm">
+            <Logo className="w-5 h-5" color="white" />
           </div>
           <div>
             <span className="text-title-sm text-inverse-on-surface tracking-tight font-semibold block leading-tight">
