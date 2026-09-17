@@ -1,6 +1,10 @@
 {
+  "buildCommand": "npm run build",
   "functions": {
-    "src/index.ts": { "maxDuration": 300 },
+    "src/index.ts": {
+      "maxDuration": 300,
+      "includeFiles": "client/dist/**"
+    },
     "api/redact.py": { "maxDuration": 60, "memory": 1024 }
   },
   "rewrites": [
