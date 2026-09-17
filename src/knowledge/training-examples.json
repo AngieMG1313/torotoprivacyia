@@ -1,0 +1,16 @@
+{
+  "dataset_version": "1.0",
+  "confirmed_pairs": [
+    {
+      "example_id": "TRAIN-001",
+      "document_type": "Acta de Asamblea - Venta de Créditos",
+      "original": "examples/TRAIN-001_ACTA_VENTA_CREDITOS/original.pdf",
+      "redacted": "examples/TRAIN-001_ACTA_VENTA_CREDITOS/censurada.pdf",
+      "status": "CONFIRMED_PAIR_VISUALLY_REVIEWED",
+      "use": "REFERENCE_EXAMPLE",
+      "note": "Este es el único par original/censurado inequívoco encontrado en los archivos entregados. Las diferencias específicas deben validarse visualmente antes de convertirlas en etiquetas de entrenamiento.",
+      "analysis": "knowledge/train-001-analysis.json"
+    }
+  ],
+  "important_note": "No se inventaron pares ni etiquetas de censura. Los documentos sin versión censurada correspondiente quedan como candidatos UAT/revisión humana."
+}

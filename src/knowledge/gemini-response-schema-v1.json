@@ -1,0 +1,262 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Toroto Privacy IA Analysis Response V1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "document",
+    "summary",
+    "detections",
+    "publication"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "document": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "document_id",
+        "filename",
+        "pages_analyzed",
+        "analysis_status"
+      ],
+      "properties": {
+        "document_id": {
+          "type": "string"
+        },
+        "filename": {
+          "type": "string"
+        },
+        "pages_analyzed": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "analysis_status": {
+          "type": "string",
+          "enum": [
+            "COMPLETED",
+            "COMPLETED_WITH_WARNINGS",
+            "FAILED"
+          ]
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "total_detections",
+        "redact",
+        "keep",
+        "human_review_required",
+        "warnings"
+      ],
+      "properties": {
+        "total_detections": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "redact": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "keep": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "human_review_required": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "warnings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "detections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "detection_id",
+          "page",
+          "rule_id",
+          "category",
+          "content_type",
+          "exact_text",
+          "context",
+          "reason",
+          "recommendation",
+          "confidence",
+          "location",
+          "requires_human_confirmation"
+        ],
+        "properties": {
+          "detection_id": {
+            "type": "string"
+          },
+          "page": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "rule_id": {
+            "type": "string",
+            "enum": [
+              "TOR-PRIV-001",
+              "TOR-PRIV-002",
+              "TOR-PRIV-003",
+              "TOR-PRIV-004",
+              "TOR-PRIV-005",
+              "TOR-PRIV-006",
+              "TOR-PRIV-007",
+              "TOR-PRIV-008",
+              "TOR-PRIV-009",
+              "TOR-PRIV-010",
+              "TOR-PRIV-011"
+            ]
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "PRECIOS_Y_MONTOS",
+              "COSTOS_Y_HONORARIOS",
+              "DISTRIBUCION_ECONOMICA",
+              "CONTRAPARTES_COMERCIALES",
+              "NEGOCIACIONES_Y_CONTRATOS",
+              "PROYECCIONES_FINANCIERAS",
+              "DATOS_BANCARIOS",
+              "DATOS_PERSONALES",
+              "FIRMAS_Y_ASISTENCIA",
+              "PAGOS_INDIVIDUALIZADOS",
+              "CONFLICTOS_Y_DATOS_DELICADOS"
+            ]
+          },
+          "content_type": {
+            "type": "string",
+            "enum": [
+              "TEXT",
+              "TABLE",
+              "HANDWRITING",
+              "SIGNATURE",
+              "FINGERPRINT",
+              "IMAGE",
+              "OTHER"
+            ]
+          },
+          "exact_text": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "context": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "recommendation": {
+            "type": "string",
+            "enum": [
+              "REDACT",
+              "KEEP",
+              "HUMAN_REVIEW_REQUIRED"
+            ]
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "location": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "coordinate_system",
+              "x",
+              "y",
+              "width",
+              "height",
+              "location_confidence"
+            ],
+            "properties": {
+              "coordinate_system": {
+                "type": "string",
+                "const": "NORMALIZED_0_1"
+              },
+              "x": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "minimum": 0,
+                "maximum": 1
+              },
+              "y": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "minimum": 0,
+                "maximum": 1
+              },
+              "width": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "minimum": 0,
+                "maximum": 1
+              },
+              "height": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "minimum": 0,
+                "maximum": 1
+              },
+              "location_confidence": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            }
+          },
+          "requires_human_confirmation": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "publication": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "human_approval_required"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "NOT_READY_FOR_PUBLICATION",
+            "READY_FOR_HUMAN_REVIEW"
+          ]
+        },
+        "human_approval_required": {
+          "type": "boolean",
+          "const": true
+        }
+      }
+    }
+  }
+}

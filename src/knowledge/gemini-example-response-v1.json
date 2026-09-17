@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0",
+  "document": {
+    "document_id": "DOC-DEMO",
+    "filename": "example.pdf",
+    "pages_analyzed": 4,
+    "analysis_status": "COMPLETED"
+  },
+  "summary": {
+    "total_detections": 3,
+    "redact": 2,
+    "keep": 1,
+    "human_review_required": 0,
+    "warnings": []
+  },
+  "detections": [
+    {
+      "detection_id": "DET-001",
+      "page": 2,
+      "rule_id": "TOR-PRIV-003",
+      "category": "DISTRIBUCION_ECONOMICA",
+      "content_type": "TEXT",
+      "exact_text": "25% para el desarrollador del proyecto",
+      "context": "Porcentaje utilizado para distribuir beneficios económicos entre las partes.",
+      "reason": "Corresponde a participación económica de una parte.",
+      "recommendation": "REDACT",
+      "confidence": 0.98,
+      "location": {
+        "coordinate_system": "NORMALIZED_0_1",
+        "x": 0.2,
+        "y": 0.5,
+        "width": 0.45,
+        "height": 0.04,
+        "location_confidence": 0.92
+      },
+      "requires_human_confirmation": true
+    },
+    {
+      "detection_id": "DET-002",
+      "page": 2,
+      "rule_id": "TOR-PRIV-003",
+      "category": "DISTRIBUCION_ECONOMICA",
+      "content_type": "TEXT",
+      "exact_text": "53.9% de asistencia",
+      "context": "Porcentaje que acredita el quórum de la asamblea.",
+      "reason": "Fue evaluado por posible similitud con porcentajes económicos, pero representa asistencia y no distribución económica.",
+      "recommendation": "KEEP",
+      "confidence": 0.98,
+      "location": {
+        "coordinate_system": "NORMALIZED_0_1",
+        "x": 0.25,
+        "y": 0.3,
+        "width": 0.25,
+        "height": 0.03,
+        "location_confidence": 0.9
+      },
+      "requires_human_confirmation": true
+    },
+    {
+      "detection_id": "DET-003",
+      "page": 4,
+      "rule_id": "TOR-PRIV-005",
+      "category": "NEGOCIACIONES_Y_CONTRATOS",
+      "content_type": "TEXT",
+      "exact_text": "exclusividad por 12 meses",
+      "context": "Condición comercial vinculada a la venta.",
+      "reason": "La guía incluye exclusividad y condiciones especiales dentro de negociaciones y contratos.",
+      "recommendation": "REDACT",
+      "confidence": 0.96,
+      "location": {
+        "coordinate_system": "NORMALIZED_0_1",
+        "x": 0.15,
+        "y": 0.65,
+        "width": 0.35,
+        "height": 0.03,
+        "location_confidence": 0.88
+      },
+      "requires_human_confirmation": true
+    }
+  ],
+  "publication": {
+    "status": "READY_FOR_HUMAN_REVIEW",
+    "human_approval_required": true
+  }
+}

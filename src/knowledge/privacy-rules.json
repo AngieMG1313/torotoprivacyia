@@ -1,0 +1,156 @@
+{
+  "product": "Toroto Privacy IA",
+  "version": "1.0",
+  "source_of_truth": "Guía de censura de actas de asamblea",
+  "principle": {
+    "private_annex": "Conservar el acta íntegra con acceso controlado.",
+    "public_annex": "Conservar la información necesaria para comprender los acuerdos y acreditar los requisitos de transparencia, censurando la información sensible."
+  },
+  "rules": [
+    {
+      "rule_id": "TOR-PRIV-001",
+      "category": "PRECIOS_Y_MONTOS",
+      "examples": [
+        "precio por crédito",
+        "total de una venta",
+        "precios mínimos",
+        "descuentos",
+        "anticipos"
+      ],
+      "action": "REVIEW_FOR_REDACTION"
+    },
+    {
+      "rule_id": "TOR-PRIV-002",
+      "category": "COSTOS_Y_HONORARIOS",
+      "examples": [
+        "inventario",
+        "monitoreo",
+        "verificación",
+        "asesoría",
+        "trabajos forestales",
+        "tarifas de proveedores",
+        "honorarios del desarrollador"
+      ],
+      "action": "REVIEW_FOR_REDACTION"
+    },
+    {
+      "rule_id": "TOR-PRIV-003",
+      "category": "DISTRIBUCION_ECONOMICA",
+      "examples": [
+        "comisiones",
+        "porcentajes de reparto",
+        "deducciones",
+        "márgenes",
+        "participación económica de cada parte"
+      ],
+      "action": "REVIEW_FOR_REDACTION"
+    },
+    {
+      "rule_id": "TOR-PRIV-004",
+      "category": "CONTRAPARTES_COMERCIALES",
+      "examples": [
+        "identidad confidencial de compradores",
+        "intermediarios",
+        "proveedores",
+        "logotipos",
+        "correos",
+        "otras referencias identificadoras"
+      ],
+      "action": "REVIEW_FOR_REDACTION"
+    },
+    {
+      "rule_id": "TOR-PRIV-005",
+      "category": "NEGOCIACIONES_Y_CONTRATOS",
+      "examples": [
+        "ofertas recibidas o rechazadas",
+        "límites de negociación",
+        "exclusividad",
+        "penalizaciones",
+        "garantías",
+        "condiciones especiales de pago"
+      ],
+      "action": "REVIEW_FOR_REDACTION"
+    },
+    {
+      "rule_id": "TOR-PRIV-006",
+      "category": "PROYECCIONES_FINANCIERAS",
+      "examples": [
+        "ingresos esperados",
+        "presupuestos futuros",
+        "rentabilidad estimada",
+        "necesidades de financiamiento"
+      ],
+      "action": "REVIEW_FOR_REDACTION"
+    },
+    {
+      "rule_id": "TOR-PRIV-007",
+      "category": "DATOS_BANCARIOS",
+      "examples": [
+        "cuentas",
+        "CLABE",
+        "referencias de transferencias",
+        "saldos",
+        "estados de cuenta",
+        "comprobantes"
+      ],
+      "action": "REVIEW_FOR_REDACTION"
+    },
+    {
+      "rule_id": "TOR-PRIV-008",
+      "category": "DATOS_PERSONALES",
+      "examples": [
+        "CURP",
+        "RFC de personas físicas",
+        "identificaciones",
+        "domicilios particulares",
+        "teléfonos",
+        "correos personales"
+      ],
+      "action": "REVIEW_FOR_REDACTION"
+    },
+    {
+      "rule_id": "TOR-PRIV-009",
+      "category": "FIRMAS_Y_ASISTENCIA",
+      "examples": [
+        "firmas autógrafas",
+        "huellas",
+        "datos personales en listas de asistencia",
+        "fotografías de credenciales",
+        "documentos legibles"
+      ],
+      "action": "REVIEW_FOR_REDACTION"
+    },
+    {
+      "rule_id": "TOR-PRIV-010",
+      "category": "PAGOS_INDIVIDUALIZADOS",
+      "examples": [
+        "montos por ejidatario",
+        "montos por comunero",
+        "montos por trabajador",
+        "montos por familia",
+        "apoyos",
+        "compensaciones",
+        "salarios",
+        "adeudos personales"
+      ],
+      "action": "REVIEW_FOR_REDACTION"
+    },
+    {
+      "rule_id": "TOR-PRIV-011",
+      "category": "CONFLICTOS_Y_DATOS_DELICADOS",
+      "examples": [
+        "identidad de denunciantes",
+        "datos de salud",
+        "situaciones familiares",
+        "detalles personales de controversias"
+      ],
+      "action": "REVIEW_FOR_REDACTION"
+    }
+  ],
+  "model_guardrails": [
+    "No censurar únicamente porque aparezca un número, porcentaje, nombre o símbolo monetario; evaluar el contexto.",
+    "Cuando exista ambigüedad, devolver HUMAN_REVIEW_REQUIRED.",
+    "La decisión final para generar una versión pública requiere revisión humana.",
+    "Analizar contenido textual y visual, incluyendo firmas, huellas, listas y documentos escaneados."
+  ]
+}

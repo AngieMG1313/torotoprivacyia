@@ -1,0 +1,86 @@
+{
+  "dataset_version": "1.0",
+  "candidates": [
+    {
+      "uat_id": "UAT-001",
+      "file": "uat_candidates/UAT-001_5.2 Acta aprobacion proyecto (1).pdf",
+      "source_name": "5.2 Acta aprobacion proyecto (1).pdf",
+      "ground_truth": "NOT_PROVIDED",
+      "recommended_use": "HUMAN_REVIEW_UAT",
+      "note": "No usar como ejemplo de entrenamiento hasta contar con una versión censurada validada."
+    },
+    {
+      "uat_id": "UAT-002",
+      "file": "uat_candidates/UAT-002_ACTA_ ELECCION COORDINADOR.pdf",
+      "source_name": "ACTA_ ELECCION COORDINADOR.pdf",
+      "ground_truth": "NOT_PROVIDED",
+      "recommended_use": "HUMAN_REVIEW_UAT",
+      "note": "No usar como ejemplo de entrenamiento hasta contar con una versión censurada validada."
+    },
+    {
+      "uat_id": "UAT-003",
+      "file": "uat_candidates/UAT-003_ACTA_ SALVAGUARDAS SOCIALES.pdf",
+      "source_name": "ACTA_ SALVAGUARDAS SOCIALES.pdf",
+      "ground_truth": "NOT_PROVIDED",
+      "recommended_use": "HUMAN_REVIEW_UAT",
+      "note": "No usar como ejemplo de entrenamiento hasta contar con una versión censurada validada."
+    },
+    {
+      "uat_id": "UAT-004",
+      "file": "uat_candidates/UAT-004_ACTA_RATIFICACION_PROYECTO_ CDN.pdf",
+      "source_name": "ACTA_RATIFICACION_PROYECTO_ CDN.pdf",
+      "ground_truth": "NOT_PROVIDED",
+      "recommended_use": "HUMAN_REVIEW_UAT",
+      "note": "No usar como ejemplo de entrenamiento hasta contar con una versión censurada validada."
+    },
+    {
+      "uat_id": "UAT-005",
+      "file": "uat_candidates/UAT-005_Acuerdo de entendimiento y plan de trabajo_Convenio firmado (sin anexos)_NCPE Centauro del Norte.pdf",
+      "source_name": "Acuerdo de entendimiento y plan de trabajo_Convenio firmado (sin anexos)_NCPE Centauro del Norte.pdf",
+      "ground_truth": "NOT_PROVIDED",
+      "recommended_use": "HUMAN_REVIEW_UAT",
+      "note": "No usar como ejemplo de entrenamiento hasta contar con una versión censurada validada."
+    },
+    {
+      "uat_id": "UAT-006",
+      "file": "uat_candidates/UAT-006_Documento de responsabilidades de las partes firmado (Centauro del Norte).pdf",
+      "source_name": "Documento de responsabilidades de las partes firmado (Centauro del Norte).pdf",
+      "ground_truth": "NOT_PROVIDED",
+      "recommended_use": "HUMAN_REVIEW_UAT",
+      "note": "No usar como ejemplo de entrenamiento hasta contar con una versión censurada validada."
+    },
+    {
+      "uat_id": "UAT-007",
+      "file": "uat_candidates/UAT-007_MINUTA_ AVANCE_ VENTA_ CRTS.pdf",
+      "source_name": "MINUTA_ AVANCE_ VENTA_ CRTS.pdf",
+      "ground_truth": "NOT_PROVIDED",
+      "recommended_use": "HUMAN_REVIEW_UAT",
+      "note": "No usar como ejemplo de entrenamiento hasta contar con una versión censurada validada."
+    },
+    {
+      "uat_id": "UAT-008",
+      "file": "uat_candidates/UAT-008_MINUTA_ AVANCES DEL PROYECTO_ ABRIL.pdf",
+      "source_name": "MINUTA_ AVANCES DEL PROYECTO_ ABRIL.pdf",
+      "ground_truth": "NOT_PROVIDED",
+      "recommended_use": "HUMAN_REVIEW_UAT",
+      "note": "No usar como ejemplo de entrenamiento hasta contar con una versión censurada validada."
+    },
+    {
+      "uat_id": "UAT-009",
+      "file": "uat_candidates/UAT-009_MINUTA_ REPORTE_PR5.pdf",
+      "source_name": "MINUTA_ REPORTE_PR5.pdf",
+      "ground_truth": "NOT_PROVIDED",
+      "recommended_use": "HUMAN_REVIEW_UAT",
+      "note": "No usar como ejemplo de entrenamiento hasta contar con una versión censurada validada."
+    },
+    {
+      "uat_id": "UAT-010",
+      "file": "uat_candidates/UAT-010_MINUTA_ VERIFICACION_PR 2-3-4.pdf",
+      "source_name": "MINUTA_ VERIFICACION_PR 2-3-4.pdf",
+      "ground_truth": "NOT_PROVIDED",
+      "recommended_use": "HUMAN_REVIEW_UAT",
+      "note": "No usar como ejemplo de entrenamiento hasta contar con una versión censurada validada."
+    }
+  ],
+  "warning": "Estos documentos NO tienen una versión censurada emparejada confirmada en el material entregado; por tanto no permiten calcular precisión/recall automáticamente todavía."
+}

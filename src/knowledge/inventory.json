@@ -1,0 +1,35 @@
+{
+  "summary": {
+    "unique_pdfs_found": 12,
+    "duplicate_groups_removed": 3,
+    "confirmed_original_redacted_pairs": 1,
+    "uat_candidates_without_ground_truth": 10
+  },
+  "duplicates": [
+    {
+      "sha256": "7bbb37c8e873dfccf0279bf2174021146ec59c513f6e5fb678bf01777375b394",
+      "files": [
+        "Documento de responsabilidades de las partes firmado (Centauro del Norte).pdf",
+        "Anexo 5.3 CONFIDENCIAL Contrato entre el Desarrollador del proyecto y Due#U00f1o Forestal SS6) (1)/Anexo5.3_CONFIDENCIAL_Contrato del DP_DF_unzipped/Documento de responsabilidades de las partes firmado (Centauro del Norte).pdf"
+      ]
+    },
+    {
+      "sha256": "b5d3d14fa19e6a49b03cc9cc2ac2fa8850d6e0337665d389b04b5dd12deef06b",
+      "files": [
+        "Acuerdo de entendimiento y plan de trabajo_Convenio firmado (sin anexos)_NCPE Centauro del Norte.pdf",
+        "Anexo 5.3 CONFIDENCIAL Contrato entre el Desarrollador del proyecto y Due#U00f1o Forestal SS6) (1)/Anexo5.3_CONFIDENCIAL_Contrato del DP_DF_unzipped/Acuerdo de entendimiento y plan de trabajo_Convenio firmado (sin anexos)_NCPE Centauro del Norte.pdf"
+      ]
+    },
+    {
+      "sha256": "0b8219d3a4701c6474a45d94cc8ca66ad1b147306807dcf880694550faab7a48",
+      "files": [
+        "Anexo 5.1 Acta de Asamblea donde aprobaron el proyecto de carbono y trataron SS1-5 (1)/ACTA_RATIFICACION_PROYECTO_ CDN.pdf",
+        "Anexo 5.6 Otros Asambleas-documentaci#U00f3n relacionada al proyecto (1)/Actas de Asamblea/ACTA_ RATIFICACION DEL PROYECTO.pdf"
+      ]
+    }
+  ],
+  "confirmed_pair": {
+    "original": "ACTA_ VENTA_ CREDITOS.pdf",
+    "redacted": "CENSURADO_ACTA_ VENTA_ CREDITOS.pdf"
+  }
+}

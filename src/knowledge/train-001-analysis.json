@@ -1,0 +1,218 @@
+{
+  "example_id": "TRAIN-001",
+  "document": "ACTA VENTA CREDITOS",
+  "review_status": "VISUALLY_REVIEWED",
+  "method": "Comparación página por página entre la versión de referencia y CENSURADO_ACTA_ VENTA_ CREDITOS.pdf.",
+  "important_limitations": [
+    "La versión denominada original ya contiene zonas visualmente ocultas/grisadas; por ello no es posible recuperar ni etiquetar con seguridad el texto exacto que existía debajo de esas zonas.",
+    "Las etiquetas se asignan por el contexto visible alrededor de cada censura, no por reconstrucción del contenido oculto.",
+    "El ejemplo histórico no censura las listas de asistencia ni las firmas de las páginas 5–7, aunque la guía vigente indica que firmas, huellas y datos personales en listas de asistencia deben revisarse. La guía se mantiene como fuente de verdad."
+  ],
+  "page_review": [
+    {
+      "page": 1,
+      "observed_redactions": [
+        {
+          "context": "Orden del día: oferta de compra-venta de créditos de carbono 'por la empresa [oculto]'.",
+          "rule_ids": [
+            "TOR-PRIV-004"
+          ],
+          "categories": [
+            "CONTRAPARTES_COMERCIALES"
+          ],
+          "expected_action": "REDACT",
+          "confidence": 0.98
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "observed_redactions": [
+        {
+          "context": "Se repite en el orden del día la identidad de la empresa compradora.",
+          "rule_ids": [
+            "TOR-PRIV-004"
+          ],
+          "categories": [
+            "CONTRAPARTES_COMERCIALES"
+          ],
+          "expected_action": "REDACT",
+          "confidence": 0.98
+        }
+      ],
+      "negative_examples": [
+        {
+          "context": "48 ejidatarios de 85 y 56.47% de asistencia permanecen visibles.",
+          "reason": "Son datos de quórum/asistencia y no representan distribución económica.",
+          "expected_action": "KEEP",
+          "confidence": 0.98
+        }
+      ]
+    },
+    {
+      "page": 3,
+      "observed_redactions": [
+        {
+          "context": "Identidad de empresa/comprador y referencias a conversaciones comerciales.",
+          "rule_ids": [
+            "TOR-PRIV-004"
+          ],
+          "categories": [
+            "CONTRAPARTES_COMERCIALES"
+          ],
+          "expected_action": "REDACT",
+          "confidence": 0.98
+        },
+        {
+          "context": "Cantidades de créditos de carbono y elementos asociados a la oferta/operación comercial.",
+          "rule_ids": [
+            "TOR-PRIV-001",
+            "TOR-PRIV-005"
+          ],
+          "categories": [
+            "PRECIOS_Y_MONTOS",
+            "NEGOCIACIONES_Y_CONTRATOS"
+          ],
+          "expected_action": "REDACT",
+          "confidence": 0.88
+        },
+        {
+          "context": "Precio unitario/importe de la operación y referencias a pago.",
+          "rule_ids": [
+            "TOR-PRIV-001",
+            "TOR-PRIV-005"
+          ],
+          "categories": [
+            "PRECIOS_Y_MONTOS",
+            "NEGOCIACIONES_Y_CONTRATOS"
+          ],
+          "expected_action": "REDACT",
+          "confidence": 0.95
+        },
+        {
+          "context": "Porcentajes, descuentos, reinversión/fondo de aseguramiento y monto económico a repartir.",
+          "rule_ids": [
+            "TOR-PRIV-003"
+          ],
+          "categories": [
+            "DISTRIBUCION_ECONOMICA"
+          ],
+          "expected_action": "REDACT",
+          "confidence": 0.97
+        },
+        {
+          "context": "Plazos y condiciones de exclusividad para la venta de créditos.",
+          "rule_ids": [
+            "TOR-PRIV-005"
+          ],
+          "categories": [
+            "NEGOCIACIONES_Y_CONTRATOS"
+          ],
+          "expected_action": "REDACT",
+          "confidence": 0.98
+        }
+      ]
+    },
+    {
+      "page": 4,
+      "observed_redactions": [
+        {
+          "context": "Precio base para créditos restantes.",
+          "rule_ids": [
+            "TOR-PRIV-001"
+          ],
+          "categories": [
+            "PRECIOS_Y_MONTOS"
+          ],
+          "expected_action": "REDACT",
+          "confidence": 0.99
+        },
+        {
+          "context": "Tabla V22, V23, V24 y V25: columna COSTO.",
+          "rule_ids": [
+            "TOR-PRIV-001"
+          ],
+          "categories": [
+            "PRECIOS_Y_MONTOS"
+          ],
+          "expected_action": "REDACT",
+          "confidence": 0.99
+        },
+        {
+          "context": "Comisión y distribución de una diferencia sobre el precio base.",
+          "rule_ids": [
+            "TOR-PRIV-003"
+          ],
+          "categories": [
+            "DISTRIBUCION_ECONOMICA"
+          ],
+          "expected_action": "REDACT",
+          "confidence": 0.97
+        },
+        {
+          "context": "Número de meses de exclusividad/garantía comercial.",
+          "rule_ids": [
+            "TOR-PRIV-005"
+          ],
+          "categories": [
+            "NEGOCIACIONES_Y_CONTRATOS"
+          ],
+          "expected_action": "REDACT",
+          "confidence": 0.96
+        },
+        {
+          "context": "Identidad/elemento de la oferta aprobada para los créditos de carbono.",
+          "rule_ids": [
+            "TOR-PRIV-004",
+            "TOR-PRIV-005"
+          ],
+          "categories": [
+            "CONTRAPARTES_COMERCIALES",
+            "NEGOCIACIONES_Y_CONTRATOS"
+          ],
+          "expected_action": "REDACT",
+          "confidence": 0.88
+        }
+      ],
+      "negative_examples": [
+        {
+          "context": "48 votos a favor, 0 en contra, 0 abstenciones y 85 ejidatarios permanecen visibles.",
+          "reason": "Son resultados de la asamblea/padrón y no una condición económica de la operación.",
+          "expected_action": "KEEP",
+          "confidence": 0.96
+        }
+      ]
+    },
+    {
+      "page": 5,
+      "observed_redactions": [],
+      "note": "No se observan censuras adicionales relevantes en la comparación histórica."
+    },
+    {
+      "page": 6,
+      "observed_redactions": [],
+      "guide_conflict": {
+        "observed": "La lista de asistencia, nombres y firmas permanecen visibles en el ejemplo histórico.",
+        "current_rule": "TOR-PRIV-009 exige revisar firmas autógrafas, huellas y datos personales en listas de asistencia.",
+        "training_policy": "NO usar esta ausencia de censura como ejemplo KEEP. En producción debe prevalecer la guía y solicitar revisión/censura."
+      }
+    },
+    {
+      "page": 7,
+      "observed_redactions": [],
+      "guide_conflict": {
+        "observed": "La lista de asistencia, nombres y firmas permanecen visibles en el ejemplo histórico.",
+        "current_rule": "TOR-PRIV-009 exige revisar firmas autógrafas, huellas y datos personales en listas de asistencia.",
+        "training_policy": "NO usar esta ausencia de censura como ejemplo KEEP. En producción debe prevalecer la guía y solicitar revisión/censura."
+      }
+    }
+  ],
+  "model_lessons": [
+    "La identidad de una contraparte comercial debe detectarse incluso cuando aparece repetida en convocatoria, orden del día y cuerpo del acta.",
+    "Los porcentajes requieren contexto: porcentajes económicos se revisan para censura; porcentajes de quórum pueden conservarse.",
+    "Los votos y cifras de asistencia pueden conservarse cuando son necesarios para acreditar acuerdos y no revelan información sensible definida por la guía.",
+    "Precios base, costos por vintage, comisiones y condiciones de exclusividad son señales de alta prioridad.",
+    "Un ejemplo histórico nunca debe anular una regla explícita de la guía vigente.",
+    "Si una zona ya viene tapada en el documento de referencia, no intentar adivinar el texto oculto; clasificar por contexto y marcar HUMAN_REVIEW_REQUIRED cuando corresponda."
+  ]
+}
